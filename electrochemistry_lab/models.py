@@ -10,8 +10,8 @@ class Person(models.Model):
 
 class Furnace(models.Model):
     furnace_name = models.CharField(max_length=50)
-    location = models.CharField(max_length=50)
-    serviceable = models.BooleanField()
+    location = models.CharField(max_length=50)  # location in laboratory
+    serviceable = models.BooleanField() # tec
     max_temperature = models.PositiveIntegerField()
     min_temperature = models.PositiveIntegerField()
     is_clean = models.BooleanField()
