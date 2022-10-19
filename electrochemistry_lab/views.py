@@ -28,7 +28,8 @@ def furnace_book_list(request):
         print(f'book.date: {book.date}')
         print(f'book.person: {book.person}')
         tmp_dict = {'date': book.date,
-                    'user': book.person}
+                    'user': book.person,
+                    'comment': book.comments}
 
         book_list.append(tmp_dict)
 

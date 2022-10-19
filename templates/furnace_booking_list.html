@@ -7,27 +7,45 @@
 <body>
 
 <div class="container">
-    <a style="margin-left: 350px;"></a>
-    <a class="button button-primary"; href="{% url 'home' %}"><button>To main</a>
+    <a style="margin-left: 500px;"></a>
+    <a class="button button-primary" ; href="{% url 'home' %}">
+        <button>To main
+    </a>
 </div>
 <h2>Booking list for {{furnace_name}}</h2>
 <p>Please, use the following form to make or change
-<a href="{% url 'admin:index' %}">booking.</a>
-<a>Today: {{date_today}}</a>
-<br><br>
-<a style="margin-left: 20px;">Furnace</a>
-<a style="margin-left: 50px;">Booking Date</a>
-<a style="margin-left: 50px;">Name</a>
-<br><br>
-{% for book in booking_list %}
-<a style="margin-left: 20px;">{{ furnace_name }} </a>
-<a style="margin-left: 50px;">{{ book.date }} </a>
-<a style="margin-left: 50px;">{{ book.user}}</a>
+    <a href="{% url 'admin:index' %}">booking.</a>
+    <a>Today: {{date_today}}</a>
+    <br><br>
+<table>
+    <colgroup style="background-color: #ddd;">
+        <col>
+        <col style="background-color: #ccc;">
+        <col>
+        <col style="background-color: #ccc;">
+    </colgroup>
+    <tbody>
+    <tr>
+        <th>Furnace</th>
+        <th>Booking Date</th>
+        <th>Name</th>
+        <th>Comments</th>
+    </tr>
+    {% for book in booking_list %}
+    <tr>
+        <td>&nbsp;&nbsp;{{ furnace_name }}&nbsp;&nbsp;</td>
+        <td>&nbsp;&nbsp;{{ book.date }}&nbsp;&nbsp;</td>
+        <td>&nbsp;&nbsp;{{ book.user}}&nbsp;&nbsp;</td>
+        <td>&nbsp;&nbsp;<i>{{ book.comment}}</i>&nbsp;&nbsp;</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
 <br>
-{% endfor %}
-<br>
-<a style="margin-left: 350px;"></a>
-<a href="{% url 'home' %}"><button>To main</a>
+<a style="margin-left: 500px;"></a>
+<a href="{% url 'home' %}">
+    <button>To main
+</a>
 
 </body>
 </html>
