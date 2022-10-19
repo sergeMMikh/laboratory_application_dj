@@ -2,10 +2,10 @@ from django.db import models
 
 
 class Person(models.Model):
-    first_name = models.CharField(max_length=250)
-    surname = models.CharField(max_length=250)
-    telephone_number = models.CharField(max_length=20)
-    email = models.CharField(max_length=20)
+    first_name = models.CharField(max_length=250, null=False)
+    surname = models.CharField(max_length=250, null=True)
+    telephone_number = models.CharField(max_length=20, null=True)
+    email = models.CharField(max_length=20, null=True)
 
     def __str__(self):
         return f"{self.first_name} {self.surname}"
