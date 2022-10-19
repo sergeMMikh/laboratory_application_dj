@@ -53,7 +53,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'electrochemistry_lab',
-        'HOST': '192.168.1.230',
+        # 'HOST': '192.168.1.230',
+        'HOST': '127.0.0.1',
         'PORT': '5432',
         'USER': 'postgres',
         'PASSWORD': 'vrag',
