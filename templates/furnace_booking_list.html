@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{furnace_name}}</title>
+</head>
+<body>
+
+<div class="container">
+    <a style="margin-left: 350px;"></a>
+    <a class="button button-primary"; href="{% url 'home' %}"><button>To main</a>
+</div>
+<h2>Booking list for {{furnace_name}}</h2>
+<p>Please, use the following form to make or change
+<a href="{% url 'admin:index' %}">booking.</a>
+<a>Today: {{date_today}}</a>
+<br><br>
+<a style="margin-left: 20px;">Furnace</a>
+<a style="margin-left: 50px;">Booking Date</a>
+<a style="margin-left: 50px;">Name</a>
+<br><br>
+{% for book in booking_list %}
+<a style="margin-left: 20px;">{{ furnace_name }} </a>
+<a style="margin-left: 50px;">{{ book.date }} </a>
+<a style="margin-left: 50px;">{{ book.user}}</a>
+<br>
+{% endfor %}
+<br>
+<a style="margin-left: 350px;"></a>
+<a href="{% url 'home' %}"><button>To main</a>
+
+</body>
+</html>

@@ -54,6 +54,8 @@ class BookingOfFurnace(models.Model):
         related_name='user',
     )
 
+    comments = models.CharField(max_length=500, null=True, blank=True)
+
     class Meta:
         constraints = [models.UniqueConstraint(name='unique_booking',
                                                fields=['date',
