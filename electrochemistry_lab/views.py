@@ -24,12 +24,15 @@ def furnace_book_list(request):
     book_list = []
 
     for book in booking:
-        print(f'book: {book}')
-        print(f'book.date: {book.date}')
-        print(f'book.person: {book.person}')
+
+        comments = str(book.comments)
+
+        if comments == 'None':
+            comments = ' '
+
         tmp_dict = {'date': book.date,
                     'user': book.person,
-                    'comment': book.comments}
+                    'comment': comments}
 
         book_list.append(tmp_dict)
 
