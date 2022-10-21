@@ -5,7 +5,7 @@ class Person(models.Model):
     first_name = models.CharField(max_length=250, null=False)
     surname = models.CharField(max_length=250, null=True)
     telephone_number = models.CharField(max_length=20, null=True)
-    email = models.CharField(max_length=20, null=True)
+    email = models.CharField(max_length=100, null=True)
 
     def __str__(self):
         return f"{self.first_name} {self.surname}"
@@ -13,10 +13,10 @@ class Person(models.Model):
 
 class Furnace(models.Model):
     # furnace name in laboratory specifications
-    furnace_name = models.CharField(max_length=50)
+    furnace_name = models.CharField(max_length=100)
 
     # location in laboratory
-    location = models.CharField(max_length=50,
+    location = models.CharField(max_length=100,
                                 verbose_name='location')
 
     # technical furnace conditions: is it working (Tru) or broken (False)

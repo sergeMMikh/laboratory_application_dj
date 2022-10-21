@@ -7,7 +7,7 @@ def home_view(request):
     template = '../templates/base.html'
     context = {}
 
-    furnaces = Furnace.objects.all()
+    furnaces = Furnace.objects.all().order_by('furnace_name')
 
     context = {'furnaces': furnaces}
 
