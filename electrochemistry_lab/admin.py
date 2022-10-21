@@ -15,8 +15,14 @@ class RersonAdmin(admin.ModelAdmin):
 
 @admin.register(Furnace)
 class FurnaceAdmin(admin.ModelAdmin):
-    list_display = 'furnace_name', 'location', 'max_temperature', 'min_temperature', 'is_clean', 'serviceable'
-    fields = ['location', 'furnace_name', 'max_temperature', 'min_temperature', 'is_clean', 'serviceable']
+    list_display = 'furnace_name', 'location', 'max_temperature', \
+                   'min_temperature', 'is_clean', 'serviceable'
+    fields = ['location',
+              'furnace_name',
+              'max_temperature',
+              'min_temperature',
+              'is_clean',
+              'serviceable']
     inlines = [BookingOfFurnaceInLine]
     list_filter = ('location',)
 

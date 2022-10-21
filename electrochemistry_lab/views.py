@@ -19,7 +19,8 @@ def furnace_book_list(request):
 
     furnace_name = request.GET.get('furnace', 'Forno')
 
-    booking = BookingOfFurnace.objects.order_by('date').filter(furnace__furnace_name=furnace_name).reverse()
+    booking = BookingOfFurnace.objects.order_by('date').filter(
+        furnace__furnace_name=furnace_name).reverse()
 
     book_list = []
 

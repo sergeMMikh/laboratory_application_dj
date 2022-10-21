@@ -23,12 +23,15 @@ class Furnace(models.Model):
     serviceable = models.BooleanField(verbose_name='available to use')
 
     # the maximum operating temperature
-    max_temperature = models.PositiveIntegerField(verbose_name='max. temperature')
+    max_temperature = models.PositiveIntegerField(
+        verbose_name='max. temperature')
 
     # the minimum operating temperature
-    min_temperature = models.PositiveIntegerField(verbose_name='min. temperature')
+    min_temperature = models.PositiveIntegerField(
+        verbose_name='min. temperature')
 
-    # is furnace using for clean materials: free from acids, alkaline, transition or volatilizing elements
+    # is furnace using for clean materials:
+    # free from acids, alkaline, transition or volatilizing elements
     is_clean = models.BooleanField(verbose_name='for clean materials')
 
     # the current furnace user
