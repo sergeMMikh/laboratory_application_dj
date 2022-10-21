@@ -13,9 +13,26 @@
     <a>One person can book a furnace for a maximum of 3 days!</a>
     <br>
     <br>
+
+<table>
+
+    <tbody>
+    <tr>
+        <th>Laboratory</th>
+        <th>Furnace</th>
+    </tr>
     {% for furnace in furnaces %}
-    <a href="{% url 'furnace'%}?furnace={{furnace.furnace_name}}">{{furnace.furnace_name}}</a>
-    <br>
+    <tr>
+        <td>&nbsp;&nbsp;{{ furnace.location }}&nbsp;&nbsp;</td>
+        <td>&nbsp;&nbsp;
+            <a href="{% url 'furnace'%}?furnace={{furnace.furnace_name}}">{{furnace.furnace_name}}</a>
+            &nbsp;&nbsp;
+        </td>
+    </tr>
     {% endfor %}
+    </tbody>
+</table>
+
+
 </body>
 </html>
