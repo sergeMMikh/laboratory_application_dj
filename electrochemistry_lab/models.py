@@ -57,7 +57,6 @@ class BookingOfFurnace(models.Model):
     comments = models.CharField(max_length=500, null=True, blank=True)
 
     class Meta:
-        constraints = [models.UniqueConstraint(name='unique_booking',
+        constraints = [models.UniqueConstraint(name='unique_booking_d_f',
                                                fields=['date',
-                                                       'person',
                                                        'furnace'])]
