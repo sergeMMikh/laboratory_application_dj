@@ -1,0 +1,9 @@
+name: Django Testing and Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  tests:
+    runs-on: ubuntu

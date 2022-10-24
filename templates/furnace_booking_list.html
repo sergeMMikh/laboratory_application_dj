@@ -17,7 +17,7 @@
     <a href="{% url 'admin:index' %}">booking.</a>
     <br>
     <br>
-    <a>Today: {{date_today}}</a>
+    <b>Today: {{date_today}}</b>
     <br>
 <table>
     <colgroup style="background-color: #ddd;">
@@ -34,12 +34,21 @@
         <th>Comments</th>
     </tr>
     {% for book in booking_list %}
+    {% if book.date == date_today %}
+    <tr>
+        <td>&nbsp;&nbsp;<b>{{ furnace_name }}</b>&nbsp;&nbsp;</td>
+        <td>&nbsp;&nbsp;<b>{{ book.date }}&nbsp;</b>&nbsp;</td>
+        <td>&nbsp;&nbsp;<b>{{ book.user}}&nbsp;</b>&nbsp;</td>
+        <td>&nbsp;&nbsp;<b><i>{{ book.comment}}</b></i>&nbsp;&nbsp;</td>
+    </tr>
+    {% else %}
     <tr>
         <td>&nbsp;&nbsp;{{ furnace_name }}&nbsp;&nbsp;</td>
         <td>&nbsp;&nbsp;{{ book.date }}&nbsp;&nbsp;</td>
         <td>&nbsp;&nbsp;{{ book.user}}&nbsp;&nbsp;</td>
         <td>&nbsp;&nbsp;<i>{{ book.comment}}</i>&nbsp;&nbsp;</td>
     </tr>
+    {% endif %}
     {% endfor %}
     </tbody>
 </table>
