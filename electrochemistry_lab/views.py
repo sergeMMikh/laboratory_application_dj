@@ -18,6 +18,8 @@ def furnace_book_list(request):
     template = '../templates/furnace_booking_list.html'
 
     furnace_name = request.GET.get('furnace', 'Forno')
+    furnace = Furnace.objects.filter(
+        furnace_name=furnace_name)
 
     booking = BookingOfFurnace.objects.order_by('date').filter(
         furnace__furnace_name=furnace_name).reverse()
@@ -37,7 +39,7 @@ def furnace_book_list(request):
 
         book_list.append(tmp_dict)
 
-    context = {'furnace_name': furnace_name,
+    context = {'furnace': furnace[0],
                'date_today': date.today(),
                'booking_list': book_list}
 

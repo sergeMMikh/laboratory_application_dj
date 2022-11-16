@@ -7,3 +7,4 @@ pytz
 sqlparse
 python-dotenv
 flake8
+gunicorn
