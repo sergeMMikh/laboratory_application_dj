@@ -12,7 +12,9 @@ class FurnaceData:
         self.measured_at = datetime.now()
 
     def __str__(self):
-        return f'Measuring time: {self.measured_at}\tT: {self.temperature}\tWSP: {self.working_set_point}'
+        return f'Measuring time: {self.measured_at}\t' \
+               f'T: {self.temperature}\t' \
+               f'WSP: {self.working_set_point}'
 
 
 class FurnaceIO:
@@ -23,7 +25,8 @@ class FurnaceIO:
 
     def check_ping(self) -> bool:
         try:
-            response = subprocess.check_output("ping -n 1 {0}".format(self.ip), shell=True).decode("cp866")
+            response = subprocess.check_output(f'ping -n 1 {self.ip}',
+                                               shell=True).decode("cp866")
 
             if "TTL" in response:
                 print(f'resource {self.ip} is available,')
@@ -36,7 +39,8 @@ class FurnaceIO:
             return False
 
     def scan_cell(self, cell_n: int):
-        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        with socket.socket(socket.AF_INET,
+                           socket.SOCK_STREAM) as sock:
             sock.connect((self.ip, int(self.port)))
             str_2_send = "Get:" + str(cell_n)
             print('->', str_2_send)
@@ -48,5 +52,8 @@ class FurnaceIO:
         return str_get.decode()
 
     def get_current_data(self):
-        return FurnaceData(temperature=self.scan_cell(cell_n=1),
-                           working_set_point=self.scan_cell(cell_n=2))
+        if self.check_ping():
+            return FurnaceData(temperature=self.scan_cell(cell_n=1),
+                               working_set_point=self.scan_cell(cell_n=2))
+        else:
+            return 'The furnace is out of tracking.'
