@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Person, Furnace, BookingOfFurnace
+from .models import Person, Furnace, BookingOfFurnace, FurnaceIPConnection
 
 
 class BookingOfFurnaceInLine(admin.TabularInline):
@@ -31,3 +31,8 @@ class FurnaceAdmin(admin.ModelAdmin):
 class BookingOfFurnaceAdmin(admin.ModelAdmin):
     list_display = 'date', 'furnace', 'person', 'comments'
     list_filter = ('furnace',)
+
+
+@admin.register(FurnaceIPConnection)
+class BookingOfFurnaceAdmin(admin.ModelAdmin):
+    list_display = 'furnace', 'ip', 'port'

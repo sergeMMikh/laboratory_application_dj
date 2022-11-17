@@ -34,6 +34,9 @@ class Furnace(models.Model):
     # free from acids, alkaline, transition or volatilizing elements
     is_clean = models.BooleanField(verbose_name='for clean materials')
 
+    ip = models.CharField(max_length=20, null=True, blank=True)
+    port = models.CharField(max_length=6, null=True, blank=True)
+
     # the current furnace user
     user = models.ManyToManyField(Person,
                                   related_name='furnaces',
@@ -41,6 +44,22 @@ class Furnace(models.Model):
 
     def __str__(self):
         return self.furnace_name
+
+
+class FurnaceIPConnection(models.Model):
+    furnace = models.ForeignKey(
+        Furnace,
+        on_delete=models.CASCADE
+    )
+
+    ip = models.CharField(max_length=20, null=True, blank=True)
+    port = models.CharField(max_length=6, null=True, blank=True)
+
+    class Meta:
+        constraints = [models.UniqueConstraint(name='unique_furnace_ip',
+                                               fields=['furnace_id',
+                                                       'ip',
+                                                       'port'])]
 
 
 class BookingOfFurnace(models.Model):
