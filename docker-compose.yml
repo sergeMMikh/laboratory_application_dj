@@ -1,0 +1,29 @@
+version: "3.9"
+
+networks:
+  lab_compose:
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_HOST=192.168.1.160
+      - POSTGRES_NAME=electrochemistry_lab
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=vrag
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    environment:
+      - POSTGRES_HOST=192.168.1.160
+      - POSTGRES_NAME=electrochemistry_lab
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=vrag
+    depends_on:
+      - db
