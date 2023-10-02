@@ -24,8 +24,10 @@ urlpatterns = [
     path('', home_view, name='home'),
     path('furnace', furnace_book_list, name='furnace'),
     # Swagger UI:
-    path('doc/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path('doc/', SpectacularSwaggerView.as_view(url_name='schema'),
+         name='swagger-ui'),
     # Redoc UI:
-    path('redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
+    path('redoc/', SpectacularRedocView.as_view(url_name='schema'),
+         name='redoc'),
     path('schema/', SpectacularAPIView.as_view(), name='schema'),
 ]

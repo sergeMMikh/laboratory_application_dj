@@ -61,18 +61,12 @@ MIDDLEWARE = [
 
 DATABASES = {
     'default': {
-        # 'ENGINE': os.getenv('DB_ENGINE'),
-        # 'NAME': os.getenv('DB_NAME'),
-        # 'HOST': os.getenv('DB_HOST'),
-        # 'PORT': os.getenv('DB_PORT'),
-        # 'USER': os.getenv('DB_USER'),
-        # 'PASSWORD': os.getenv('DB_PASSWORD'),
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'electrochemistry_lab',
-        'HOST': '192.168.1.160',
-        'PORT': '5432',
-        'USER': 'postgres',
-        'PASSWORD': 'vrag',
+        'ENGINE': os.getenv('DB_ENGINE'),
+        'NAME': os.getenv('DB_NAME'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
     }
 }
 
