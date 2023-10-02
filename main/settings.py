@@ -42,6 +42,10 @@ INSTALLED_APPS = [
     'electrochemistry_lab',
 ]
 
+INSTALLED_APPS += [
+    'drf_spectacular',
+]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -70,6 +74,11 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': 'vrag',
     }
+}
+
+REST_FRAMEWORK = {
+    # other DRF settings here
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 # Password validation
