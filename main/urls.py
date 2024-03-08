@@ -15,19 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from drf_spectacular.views import SpectacularRedocView, SpectacularSwaggerView
-from drf_spectacular.views import SpectacularAPIView
+
 from electrochemistry_lab.views import home_view, furnace_book_list
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', home_view, name='home'),
-    path('furnace', furnace_book_list, name='furnace'),
-    # Swagger UI:
-    path('doc/', SpectacularSwaggerView.as_view(url_name='schema'),
-         name='swagger-ui'),
-    # Redoc UI:
-    path('redoc/', SpectacularRedocView.as_view(url_name='schema'),
-         name='redoc'),
-    path('schema/', SpectacularAPIView.as_view(), name='schema'),
+    path('furnace', furnace_book_list, name='furnace')
 ]
