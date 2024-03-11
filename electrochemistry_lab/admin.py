@@ -10,7 +10,7 @@ class BookingOfFurnaceInLine(admin.TabularInline):
 @admin.register(Person)
 class RersonAdmin(admin.ModelAdmin):
     list_display = 'first_name', 'surname', 'telephone_number', 'email'
-    search_fields = ('first_name', 'surname',)
+    search_fields = ('first_name', 'surname')
 
 
 @admin.register(Furnace)
