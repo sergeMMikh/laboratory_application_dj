@@ -39,7 +39,7 @@ jobs:
           pip install --upgrade pip |
           pip install -r requirements.txt
 
-      - name: Linting of stocks_products
+      - name: Linting of electrochemistry_lab
         run: flake8 electrochemistry_lab
 
       - name: Linting of logistic
