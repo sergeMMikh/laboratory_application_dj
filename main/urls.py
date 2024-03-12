@@ -21,5 +21,5 @@ from electrochemistry_lab.views import home_view, furnace_book_list
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', home_view, name='home'),
-    path('furnace', furnace_book_list, name='furnace')
+    path('furnace', furnace_book_list, name='furnace'),
 ]
